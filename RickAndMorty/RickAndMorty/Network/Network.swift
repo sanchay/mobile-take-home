@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol URLSessionProtocol {
+    typealias SessionResult = (Data?, URLResponse?, Error?) -> Void
+    
+    func runDataTask(with request: URLRequest, completionHandler: @escaping SessionResult) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessionProtocol {
+    func runDataTask(with request: URLRequest, completionHandler: @escaping URLSessionProtocol.SessionResult) -> URLSessionDataTask {
+        return dataTask(with: request, completionHandler: completionHandler)
+    }
+}
+
 protocol Networking {
     typealias CompletionHandler = (Data?, Swift.Error?) -> Void
 
@@ -15,11 +27,21 @@ protocol Networking {
 }
 
 struct HttpNetworking: Networking {
+    private let session: URLSessionProtocol
+    
+    init() {
+        self.session = URLSession.shared
+    }
+    
+    init(session: URLSessionProtocol) {
+        self.session = session
+    }
+    
     func request(from: Endpoint, completion: @escaping CompletionHandler) {
         guard let url = URL(string: from.path) else { return }
         let request = URLRequest(url: url)
         DispatchQueue.global(qos: .background).async {
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            let task = self.session.runDataTask(with: request) { (data, response, error) in
                 DispatchQueue.main.async {
                     completion(data, error)
                 }
