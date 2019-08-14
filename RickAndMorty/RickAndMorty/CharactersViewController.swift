@@ -11,6 +11,7 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelDeadOrAlive: UILabel!
     
     var characterUrls: [String]?
     private var characters: [Character]?
@@ -67,6 +68,7 @@ extension CharactersViewController {
     
     @IBAction func onUpdateSwitch(_ sender: Any) {
         filterCharacters(isAlive: (sender as! UISwitch).isOn)
+        labelDeadOrAlive.text = (sender as! UISwitch).isOn ? "Alive" : "Dead"
         tableView.reloadData()
     }
 }

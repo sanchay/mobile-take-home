@@ -104,8 +104,8 @@
                                     <action selector="onUpdateSwitch:" destination="F0L-TA-LdF" eventType="valueChanged" id="eoR-yE-76e"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alive/Dead?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwg-Ix-QrY">
-                                <rect key="frame" x="161.66666666666666" y="77" width="91" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwg-Ix-QrY">
+                                <rect key="frame" x="188.66666666666666" y="77" width="36.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -125,6 +125,7 @@
                         <viewLayoutGuide key="safeArea" id="w2e-qV-NmA"/>
                     </view>
                     <connections>
+                        <outlet property="labelDeadOrAlive" destination="Mwg-Ix-QrY" id="CVr-Gz-ifE"/>
                         <outlet property="tableView" destination="dav-P2-8mb" id="JHx-0H-TUL"/>
                         <segue destination="G2d-Lc-cea" kind="show" identifier="segue_show_character" id="r56-qj-bNu"/>
                     </connections>
