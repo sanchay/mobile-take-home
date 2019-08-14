@@ -15,6 +15,8 @@ class CharacterViewController: UIViewController, Modeling {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
+    
+    var labelStatusOverride: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class CharacterViewController: UIViewController, Modeling {
         }
         
         lblName.text = character.name
-        lblStatus.text = character.status
+        lblStatus.text = labelStatusOverride ? "Dead" : character.status
         
         self.fetchCharacterImage(urlString: character.image) { [weak self] in
             switch $0 {

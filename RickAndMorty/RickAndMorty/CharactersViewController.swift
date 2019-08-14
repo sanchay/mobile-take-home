@@ -147,5 +147,11 @@ extension CharactersViewController {
             fatalError("Incorrect index path row value")
         }
         characterViewController.character = character
+        
+        let killed = Killed()
+        let killedCharacters = killed.characters["\(episodeId)"]
+        if killedCharacters?.contains(character.id) ?? false {
+            characterViewController.labelStatusOverride = true
+        }
     }
 }
