@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CharactersResult = (Result<[Character], Error>) -> Void
+
 struct CharactersFetcher: JSONDecodable {
     let networking: Networking
     let characterIds: String
@@ -17,15 +19,17 @@ struct CharactersFetcher: JSONDecodable {
         self.networking = networking
     }
     
-    func fetch(response: @escaping([Character]?) -> Void) {
+    func fetch(response: @escaping CharactersResult) {
         networking.request(from: RickAndMortyApi.characters(characterIds)) { (data, error) in
-            if let error = error {
-                // TODO: Add error handler
-                print("Error caught: \(error.localizedDescription)")
-                response(nil)
+            guard error == nil else {
+                response(.failure(error!))
+                return
             }
-            let characters = self.decode(type: [Character].self, from: data)
-            response(characters)
+            guard let decodedData = self.decode(type: [Character].self, from: data) else {
+                response(.failure(JSONError.invalid))
+                return
+            }
+            response(.success(decodedData))
         }
     }
 }

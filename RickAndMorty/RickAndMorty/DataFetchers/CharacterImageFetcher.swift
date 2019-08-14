@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias CharacterImageResult = (Result<UIImage, Error>) -> Void
+
 struct CharacterImageFetcher {
     let networking: Networking
     let imageUrlString: String
@@ -18,19 +20,21 @@ struct CharacterImageFetcher {
         self.networking = networking
     }
     
-    func fetch(response: @escaping(UIImage?) -> Void) {
+    func fetch(response: @escaping CharacterImageResult) {
         networking.request(from: RickAndMortyApi.characterImage(imageUrlString)) { (data, error) in
-            if let error = error {
-                // TODO: Add error handler
-                print("Error caught: \(error.localizedDescription)")
-                response(nil)
-            }
-            
-            guard let data = data else {
-                response(nil)
+            guard error == nil else {
+                response(.failure(error!))
                 return
             }
-            response(UIImage(data: data))
+            guard let data = data else {
+                response(.failure(ImageError.noImageData))
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                response(.failure(ImageError.invalid))
+                return
+            }
+            response(.success(image))
         }
     }
 }
