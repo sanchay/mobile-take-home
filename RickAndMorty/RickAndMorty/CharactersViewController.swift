@@ -87,6 +87,18 @@ extension CharactersViewController: UITableViewDataSource {
 extension CharactersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "segue_show_character", sender: nil)
+    }
+}
+
+extension CharactersViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let characterViewController = segue.destination as! CharacterViewController
+        let indexPath = tableView.indexPathForSelectedRow
+        guard let row = indexPath?.row, row >= 0, let character = filteredCharacters?[row] else {
+            fatalError("Incorrect index path row value")
+        }
+        characterViewController.character = character
     }
 }
