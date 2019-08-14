@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5103B8D723047FA100049719 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5103B8D623047FA100049719 /* UIViewController+Extension.swift */; };
 		512B3F562303CD1500AE6A3A /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B3F552303CD1500AE6A3A /* CharactersViewController.swift */; };
 		512B3F5C2303E4D000AE6A3A /* CharactersFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B3F5B2303E4D000AE6A3A /* CharactersFetcher.swift */; };
 		513D6FE02303BF280037A77D /* Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6FDF2303BF280037A77D /* Modeling.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5103B8D623047FA100049719 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		512B3F552303CD1500AE6A3A /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharactersViewController.swift; path = ../CharactersViewController.swift; sourceTree = "<group>"; };
 		512B3F5B2303E4D000AE6A3A /* CharactersFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFetcher.swift; sourceTree = "<group>"; };
 		513D6FDF2303BF280037A77D /* Modeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modeling.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		51CCE75B23047F2800897835 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5103B8D623047FA100049719 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		51F16F3C230366440024B1C8 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 		51F16F47230366450024B1C8 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				51CCE75B23047F2800897835 /* Extensions */,
 				51F16F76230378E80024B1C8 /* DataFetchers */,
 				51F16F6F230377290024B1C8 /* Models */,
 				51F16F6823036DFB0024B1C8 /* Network */,
@@ -278,6 +289,7 @@
 				51F16F4B230366450024B1C8 /* EpisodesViewController.swift in Sources */,
 				51F16F78230379030024B1C8 /* EpisodesFetcher.swift in Sources */,
 				5160FC222303F9E5006F51A9 /* CharacterViewController.swift in Sources */,
+				5103B8D723047FA100049719 /* UIViewController+Extension.swift in Sources */,
 				51F16F49230366450024B1C8 /* AppDelegate.swift in Sources */,
 				51F16F6D230374AA0024B1C8 /* Endpoint.swift in Sources */,
 				512B3F5C2303E4D000AE6A3A /* CharactersFetcher.swift in Sources */,
