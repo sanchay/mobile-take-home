@@ -11,7 +11,7 @@ import UIKit
 
 protocol Modeling {
     func fetchEpisodes(completion: @escaping (Episodes) -> Void)
-    func fetchCharacter(id: Int, completion: @escaping (Character) -> Void)
+    func fetchCharacter(characterUrlString: String, completion: @escaping (Character) -> Void)
     func fetchCharacterImage(urlString: String, completion: @escaping(UIImage?) -> Void)
 }
 
@@ -25,8 +25,8 @@ extension Modeling {
         }
     }
     
-    func fetchCharacter(id: Int, completion: @escaping (Character) -> Void) {
-        let fetcher = CharacterFetcher(characterId: id, networking: HttpNetworking())
+    func fetchCharacter(characterUrlString: String, completion: @escaping (Character) -> Void) {
+        let fetcher = CharacterFetcher(characterUrlString: characterUrlString, networking: HttpNetworking())
         fetcher.fetch { (character) in
             if let character = character {
                 completion(character)

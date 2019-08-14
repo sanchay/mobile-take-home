@@ -10,15 +10,15 @@ import Foundation
 
 struct CharacterFetcher: JSONDecodable {
     let networking: Networking
-    let characterId: Int
+    let characterUrlString: String
     
-    init(characterId: Int, networking: Networking) {
-        self.characterId = characterId
+    init(characterUrlString: String, networking: Networking) {
+        self.characterUrlString = characterUrlString
         self.networking = networking
     }
     
     func fetch(response: @escaping(Character?) -> Void) {
-        networking.request(from: RickAndMortyApi.character(characterId)) { (data, error) in
+        networking.request(from: RickAndMortyApi.character(characterUrlString)) { (data, error) in
             if let error = error {
                 // TODO: Add error handler
                 print("Error caught: \(error.localizedDescription)")

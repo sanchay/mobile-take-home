@@ -14,7 +14,7 @@ protocol Endpoint {
 
 enum RickAndMortyApi {
     case episodes
-    case character(Int)
+    case character(String)
     case characterImage(String)
 }
 
@@ -23,8 +23,8 @@ extension RickAndMortyApi: Endpoint {
         switch self {
         case .episodes:
             return "https://rickandmortyapi.com/api/episode"
-        case .character(let characterId):
-            return "https://rickandmortyapi.com/api/character/\(characterId)"
+        case .character(let characterUrlString):
+            return characterUrlString
         case .characterImage(let imageUrlString):
             return imageUrlString
         }
