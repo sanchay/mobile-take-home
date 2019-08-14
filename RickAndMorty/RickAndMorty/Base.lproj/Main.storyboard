@@ -126,11 +126,84 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="dav-P2-8mb" id="JHx-0H-TUL"/>
+                        <segue destination="G2d-Lc-cea" kind="show" identifier="segue_show_character" id="r56-qj-bNu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hee-J7-gcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1797.1014492753625" y="16.304347826086957"/>
+        </scene>
+        <!--Character View Controller-->
+        <scene sceneID="HyS-xc-oqg">
+            <objects>
+                <viewController id="G2d-Lc-cea" customClass="CharacterViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QnX-tV-o0F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dgd-8g-Ect">
+                                <rect key="frame" x="87" y="72" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="qTk-dc-P7E"/>
+                                    <constraint firstAttribute="width" constant="240" id="rGm-7P-FoG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHX-O9-Ydt">
+                                <rect key="frame" x="87" y="340" width="50" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="GHn-hL-Vdx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnV-E0-QaP">
+                                <rect key="frame" x="145" y="340" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ko-qK-f5J">
+                                <rect key="frame" x="87" y="369" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZx-VB-iIs">
+                                <rect key="frame" x="145" y="369" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EnV-E0-QaP" firstAttribute="trailing" secondItem="iZx-VB-iIs" secondAttribute="trailing" id="MdK-ju-7EW"/>
+                            <constraint firstItem="6Ko-qK-f5J" firstAttribute="bottom" secondItem="iZx-VB-iIs" secondAttribute="bottom" id="Q6P-qn-oee"/>
+                            <constraint firstItem="iZx-VB-iIs" firstAttribute="top" secondItem="EnV-E0-QaP" secondAttribute="bottom" constant="8" symbolic="YES" id="YYH-f8-iCg"/>
+                            <constraint firstItem="EnV-E0-QaP" firstAttribute="leading" secondItem="iZx-VB-iIs" secondAttribute="leading" id="dOR-Zo-qbY"/>
+                            <constraint firstItem="6Ko-qK-f5J" firstAttribute="top" secondItem="fHX-O9-Ydt" secondAttribute="bottom" constant="8" symbolic="YES" id="f9m-3L-ENc"/>
+                            <constraint firstItem="6Ko-qK-f5J" firstAttribute="top" secondItem="iZx-VB-iIs" secondAttribute="top" id="fF1-Dj-3de"/>
+                            <constraint firstItem="dgd-8g-Ect" firstAttribute="centerX" secondItem="QnX-tV-o0F" secondAttribute="centerX" id="iw0-Nd-qFS"/>
+                            <constraint firstItem="fHX-O9-Ydt" firstAttribute="top" secondItem="dgd-8g-Ect" secondAttribute="bottom" constant="28" id="mbE-Ah-Yon"/>
+                            <constraint firstItem="fHX-O9-Ydt" firstAttribute="leading" secondItem="6Ko-qK-f5J" secondAttribute="leading" id="tgx-Ro-jN9"/>
+                            <constraint firstItem="dgd-8g-Ect" firstAttribute="top" secondItem="UbX-9I-vdu" secondAttribute="top" constant="8" id="uEP-WU-mdN"/>
+                            <constraint firstItem="fHX-O9-Ydt" firstAttribute="leading" secondItem="dgd-8g-Ect" secondAttribute="leading" id="uNb-6e-3B6"/>
+                            <constraint firstItem="EnV-E0-QaP" firstAttribute="leading" secondItem="fHX-O9-Ydt" secondAttribute="trailing" constant="8" symbolic="YES" id="vQe-MD-JPh"/>
+                            <constraint firstItem="fHX-O9-Ydt" firstAttribute="top" secondItem="EnV-E0-QaP" secondAttribute="top" id="w1f-3k-b8j"/>
+                            <constraint firstItem="EnV-E0-QaP" firstAttribute="trailing" secondItem="dgd-8g-Ect" secondAttribute="trailing" id="xb7-PE-hkZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UbX-9I-vdu"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="dgd-8g-Ect" id="MuX-2b-HyJ"/>
+                        <outlet property="lblName" destination="EnV-E0-QaP" id="41U-c8-tvr"/>
+                        <outlet property="lblStatus" destination="iZx-VB-iIs" id="80F-PM-BGw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNH-kr-0Xu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2689.8550724637685" y="15.489130434782609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PII-Xj-PPB">
