@@ -31,7 +31,12 @@ class CharacterViewController: UIViewController, Modeling {
         lblStatus.text = character.status
         
         self.fetchCharacterImage(urlString: character.image) { [weak self] in
-            self?.imageView.image = $0
+            switch $0 {
+            case .success(let image):
+                self?.imageView.image = image
+            case .failure(let error):
+                self?.alert(message: error.localizedDescription)
+            }
         }
     }
 }

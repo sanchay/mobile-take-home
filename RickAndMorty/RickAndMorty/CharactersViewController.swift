@@ -44,10 +44,15 @@ extension CharactersViewController: Modeling {
             return url.lastPathComponent
         }.joined(separator: ",")
         guard let ids = characterIds else { return }
-        self.fetchCharacters(characterIds: ids) { [weak self] (characters) in
-            self?.characters = characters
-            self?.filterCharacters(isAlive: true)
-            self?.tableView.reloadData()
+        self.fetchCharacters(characterIds: ids) { [weak self] charactersResult in
+            switch charactersResult {
+            case .success(let characters):
+                self?.characters = characters
+                self?.filterCharacters(isAlive: true)
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.alert(message: error.localizedDescription)
+            }
         }
     }
 }

@@ -31,9 +31,14 @@ class EpisodesViewController: UIViewController, Modeling {
     func configure() {
         title = "Episodes"
         
-        self.fetchEpisodes { [weak self] episodes in
-            self?.episodes = episodes
-            self?.tableView.reloadData()
+        self.fetchEpisodes { [weak self] episodesResult in
+            switch episodesResult {
+            case .success(let episodes):
+                self?.episodes = episodes
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.alert(message: error.localizedDescription)
+            }
         }
     }
 }
