@@ -12,7 +12,9 @@ class CharactersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelDeadOrAlive: UILabel!
+    @IBOutlet weak var switchDeadOrAlive: UISwitch!
     
+    var episodeId: Int = -1
     var characterUrls: [String]?
     private var characters: [Character]?
     private var filteredCharacters: [Character]?
@@ -64,6 +66,25 @@ extension CharactersViewController {
         filteredCharacters = characters?.filter {
             $0.status == (isAlive ? "Alive" : "Dead")
         }.sorted(by: >)
+        
+        let killed = Killed()
+        let killedCharacters = killed.characters["\(episodeId)"]
+        
+        let killedCharacterObjs = characters?.filter {
+            return killedCharacters?.contains($0.id) ?? false
+        }
+        
+        if switchDeadOrAlive.isOn {
+            // remove from filtered characters
+            filteredCharacters?.removeAll(where: {
+                return killedCharacterObjs?.contains($0) ?? false
+            })
+        } else {
+            // add to filtered characters
+            filteredCharacters?.append(contentsOf: killedCharacterObjs ?? [])
+        }
+        
+        filteredCharacters?.sort(by: >)
     }
     
     @IBAction func onUpdateSwitch(_ sender: Any) {
@@ -88,6 +109,25 @@ extension CharactersViewController: UITableViewDataSource {
         characterCell.textLabel?.text = filteredCharacters?[indexPath.row].name
         characterCell.detailTextLabel?.text = filteredCharacters?[indexPath.row].created
         return characterCell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if !switchDeadOrAlive.isOn, episodeId == -1 {
+            return UISwipeActionsConfiguration(actions: [])
+        }
+        
+        let modifyAction = UIContextualAction(style: .normal, title:  "Kill", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            guard let self = self else { return }
+            if let characterId = self.filteredCharacters?[indexPath.row].id {
+                var killed = Killed()
+                killed.add(episodeId: self.episodeId, characterId: characterId)
+            }
+            self.loadCharacters()
+            success(true)
+        })
+        
+        modifyAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [modifyAction])
     }
 }
 

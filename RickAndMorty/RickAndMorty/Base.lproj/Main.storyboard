@@ -126,6 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="labelDeadOrAlive" destination="Mwg-Ix-QrY" id="CVr-Gz-ifE"/>
+                        <outlet property="switchDeadOrAlive" destination="mJe-ee-m13" id="veU-vw-gBH"/>
                         <outlet property="tableView" destination="dav-P2-8mb" id="JHx-0H-TUL"/>
                         <segue destination="G2d-Lc-cea" kind="show" identifier="segue_show_character" id="r56-qj-bNu"/>
                     </connections>

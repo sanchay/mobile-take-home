@@ -75,7 +75,14 @@ extension EpisodesViewController {
         guard let row = indexPath?.row, row >= 0 else {
             fatalError("Incorrect index path row value")
         }
+        
+        guard let episodeId = episodes?.results[row].id else {
+            alert(message: "Error in episode data")
+            return
+        }
+        
         let characterUrls = episodes?.results[row].characters
+        charactersViewController.episodeId = episodeId
         charactersViewController.characterUrls = characterUrls
     }
 }
