@@ -8,6 +8,15 @@
 
 import Foundation
 
+enum JSONError: Error {
+    case invalid
+}
+
+enum ImageError: Error {
+    case noImageData
+    case invalid
+}
+
 protocol JSONDecodable {}
 
 extension JSONDecodable {
