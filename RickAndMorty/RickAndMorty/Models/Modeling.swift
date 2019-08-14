@@ -10,34 +10,30 @@ import Foundation
 import UIKit
 
 protocol Modeling {
-    func fetchEpisodes(completion: @escaping (Episodes) -> Void)
-    func fetchCharacters(characterIds: String, completion: @escaping ([Character]) -> Void)
-    func fetchCharacterImage(urlString: String, completion: @escaping(UIImage?) -> Void)
+    func fetchEpisodes(completion: @escaping EpisodesResult)
+    func fetchCharacters(characterIds: String, completion: @escaping CharactersResult)
+    func fetchCharacterImage(urlString: String, completion: @escaping CharacterImageResult)
 }
 
 extension Modeling {
-    func fetchEpisodes(completion: @escaping (Episodes) -> Void) {
+    func fetchEpisodes(completion: @escaping EpisodesResult) {
         let fetcher = EpisodesFetcher(networking: HttpNetworking())
-        fetcher.fetch { episodes in
-            if let episodes = episodes {
-                completion(episodes)
-            }
+        fetcher.fetch { episodesResult in
+            completion(episodesResult)
         }
     }
     
-    func fetchCharacters(characterIds: String, completion: @escaping ([Character]) -> Void) {
+    func fetchCharacters(characterIds: String, completion: @escaping CharactersResult) {
         let fetcher = CharactersFetcher(characterIds: characterIds, networking: HttpNetworking())
-        fetcher.fetch { (characters) in
-            if let characters = characters {
-                completion(characters)
-            }
+        fetcher.fetch { charactersResult in
+            completion(charactersResult)
         }
     }
     
-    func fetchCharacterImage(urlString: String, completion: @escaping(UIImage?) -> Void) {
+    func fetchCharacterImage(urlString: String, completion: @escaping CharacterImageResult) {
         let fetcher = CharacterImageFetcher(imageUrlString: urlString, networking: HttpNetworking())
-        fetcher.fetch { (image) in
-            completion(image)
+        fetcher.fetch { characterImageResult in
+            completion(characterImageResult)
         }
     }
 }
