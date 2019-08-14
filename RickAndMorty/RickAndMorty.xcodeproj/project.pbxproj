@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		512B3F562303CD1500AE6A3A /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B3F552303CD1500AE6A3A /* CharactersViewController.swift */; };
+		512B3F5C2303E4D000AE6A3A /* CharactersFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B3F5B2303E4D000AE6A3A /* CharactersFetcher.swift */; };
 		513D6FE02303BF280037A77D /* Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6FDF2303BF280037A77D /* Modeling.swift */; };
 		513D6FE12303BF280037A77D /* Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6FDF2303BF280037A77D /* Modeling.swift */; };
 		51F16F49230366450024B1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F16F48230366450024B1C8 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		512B3F552303CD1500AE6A3A /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		512B3F5B2303E4D000AE6A3A /* CharactersFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFetcher.swift; sourceTree = "<group>"; };
 		513D6FDF2303BF280037A77D /* Modeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modeling.swift; sourceTree = "<group>"; };
 		51F16F45230366450024B1C8 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F16F48230366450024B1C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				51F16F7A23037C830024B1C8 /* JSONDecodable.swift */,
 				51F16F77230379030024B1C8 /* EpisodesFetcher.swift */,
+				512B3F5B2303E4D000AE6A3A /* CharactersFetcher.swift */,
 				51F16F832303B4F90024B1C8 /* CharacterImageFetcher.swift */,
 			);
 			path = DataFetchers;
@@ -261,6 +264,7 @@
 				51F16F78230379030024B1C8 /* EpisodesFetcher.swift in Sources */,
 				51F16F49230366450024B1C8 /* AppDelegate.swift in Sources */,
 				51F16F6D230374AA0024B1C8 /* Endpoint.swift in Sources */,
+				512B3F5C2303E4D000AE6A3A /* CharactersFetcher.swift in Sources */,
 				51F16F74230377A50024B1C8 /* Character.swift in Sources */,
 				51F16F7B23037C830024B1C8 /* JSONDecodable.swift in Sources */,
 				512B3F562303CD1500AE6A3A /* CharactersViewController.swift in Sources */,
