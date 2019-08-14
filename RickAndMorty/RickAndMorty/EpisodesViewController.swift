@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, Modeling {
+class EpisodesViewController: UIViewController, Modeling {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController, Modeling {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension EpisodesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
