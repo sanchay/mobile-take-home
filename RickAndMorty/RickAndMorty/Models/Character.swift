@@ -19,4 +19,16 @@ struct Character: Codable {
     let name: String
     let status: String
     let image: String
+    let created: String
+}
+
+extension Character: Comparable {
+    static func < (lhs: Character, rhs: Character) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale = Locale.current
+        guard let lhsDate = dateFormatter.date(from: lhs.created),
+            let rhsDate = dateFormatter.date(from: rhs.created) else { return false }
+        return lhsDate < rhsDate
+    }
 }
