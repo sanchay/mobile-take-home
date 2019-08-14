@@ -112,7 +112,7 @@ extension CharactersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if !switchDeadOrAlive.isOn, episodeId == -1 {
+        if !switchDeadOrAlive.isOn || episodeId == -1 {
             return UISwipeActionsConfiguration(actions: [])
         }
         
