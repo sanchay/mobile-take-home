@@ -9,6 +9,8 @@
 import UIKit
 
 class CharactersViewController: UIViewController {
+    
+    var characters: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
