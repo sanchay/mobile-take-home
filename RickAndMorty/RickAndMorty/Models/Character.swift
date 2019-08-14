@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum CharacterStatus: String, Codable {
-    case alive = "Alive"
-    case dead = "Dead"
-    case unknown
-}
-
 struct Character: Codable {
     let id: Int
     let name: String
