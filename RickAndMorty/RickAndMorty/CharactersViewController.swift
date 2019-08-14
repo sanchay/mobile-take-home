@@ -10,23 +10,38 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var characters: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configure()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configure() {
+        title = "Characters"
     }
-    */
+}
 
+extension CharactersViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return characters?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let characterCell = tableView.dequeueReusableCell(withIdentifier: "character_cell", for: indexPath)
+        return characterCell
+    }
+}
+
+extension CharactersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }

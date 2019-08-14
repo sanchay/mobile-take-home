@@ -63,7 +63,29 @@
                     <view key="view" contentMode="scaleToFill" id="Qri-V3-JNr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dav-P2-8mb">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="character_cell" id="y1j-i3-DaK">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y1j-i3-DaK" id="Tot-12-iIU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w2e-qV-NmA" firstAttribute="trailing" secondItem="dav-P2-8mb" secondAttribute="trailing" id="28z-ak-Mk8"/>
+                            <constraint firstItem="dav-P2-8mb" firstAttribute="leading" secondItem="w2e-qV-NmA" secondAttribute="leading" id="3a4-D4-LdQ"/>
+                            <constraint firstItem="dav-P2-8mb" firstAttribute="top" secondItem="w2e-qV-NmA" secondAttribute="top" id="cWK-WY-1pU"/>
+                            <constraint firstItem="w2e-qV-NmA" firstAttribute="bottom" secondItem="dav-P2-8mb" secondAttribute="bottom" id="fof-b6-J8E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w2e-qV-NmA"/>
                     </view>
                 </viewController>
