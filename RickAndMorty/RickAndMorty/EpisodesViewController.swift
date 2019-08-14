@@ -46,3 +46,21 @@ extension EpisodesViewController: UITableViewDataSource {
         return episodeCell
     }
 }
+
+extension EpisodesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "segue_show_characters", sender: nil)
+    }
+}
+
+extension EpisodesViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let charactersViewController = segue.destination as! CharactersViewController
+        let indexPath = self.tableView.indexPathForSelectedRow
+        guard let row = indexPath?.row, row >= 0 else {
+            fatalError("Incorrect index path row value")
+        }
+        let characters = episodes?.results[row].characters
+        charactersViewController.characters = characters
+    }
+}

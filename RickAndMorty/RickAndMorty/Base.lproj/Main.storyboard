@@ -33,6 +33,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Qx5-Mu-Dee"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7Bn-GH-VsI"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -48,6 +49,7 @@
                     <navigationItem key="navigationItem" id="8vJ-Q6-0Ek"/>
                     <connections>
                         <outlet property="tableView" destination="lfX-pk-e8k" id="Fam-OZ-I7X"/>
+                        <segue destination="F0L-TA-LdF" kind="show" identifier="segue_show_characters" id="ftI-5X-Otj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
